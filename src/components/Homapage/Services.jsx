@@ -4,7 +4,7 @@ import ServiceCard from '../Cards/ServiceCard';
 import { getServices } from '@/services/getServices';
 
 
-
+// getservices in services folder 
 
 const Services = async() => {
 
