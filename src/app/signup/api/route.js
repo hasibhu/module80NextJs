@@ -24,6 +24,3 @@ export const POST = async (request) => {
         return new Response(JSON.stringify({ message: 'Error creating user' }), { status: 500 });
     }
 };
-
-
-195621001863-qe8d9stg3co176dkutn5oiu8vjp9knki.apps.googleusercontent.com
