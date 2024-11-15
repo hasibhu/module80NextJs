@@ -45,8 +45,8 @@ const page = async ({ params }) => {
                 </div>
 
                 {/* Facilities Section */}
-                <div className='flex'>
-                        <div className='my-6'>
+                <div className='flex justify-between '>
+                        <div className='my-6 w-2/3'>
                             <h2 className='text-2xl font-bold mb-4'>Facilities</h2>
                             <div className='grid grid-cols-2 gap-6'>
                                 {details.facility.map((item, index) => (
@@ -62,7 +62,7 @@ const page = async ({ params }) => {
                         </div>
 
                     {/* Pricing and Checkout */}
-                    <div className='p-6 bg-gray-100 mt-1 ml-1'>
+                    <div className='p-6 bg-gray-100 w-1/3  mt-1 ml-1'>
                         <Image
                             className='w-full h-40 object-cover'
                             src={details.img}
@@ -82,7 +82,10 @@ const page = async ({ params }) => {
                             </button>
                         </Link>
                     </div>
-               </div>
+                </div>
+                
+
+                
             </div>
         </div>
     );

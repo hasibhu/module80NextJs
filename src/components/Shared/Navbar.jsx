@@ -11,7 +11,7 @@ import { IoCartOutline, IoSearch } from "react-icons/io5";
 const Navbar = () => {
     const session = useSession()
 
-    console.log(session);
+    // console.log(session);
 
     return (
         <div className='bg-slate-400'>
