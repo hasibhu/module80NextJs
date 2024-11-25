@@ -4,7 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from 'bcrypt'
 import GoogleProvider from 'next-auth/providers/google'
 
-const handler =  NextAuth({
+const handler = NextAuth({
+    secret: process.env.NEXT_PUBLIC_AUTH_SECRET, //helps keeping the login persistent, NEXT_PUBLIC_AUTH_SECRET is genereated by running "openssl rand -base64 32" in the terminal
     session: {
         strategy: 'jwt',
         maxAge: 30*24*60*60

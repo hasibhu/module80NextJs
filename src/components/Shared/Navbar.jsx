@@ -115,8 +115,8 @@ const navMenu = [
     path: '/services',
   },
   {
-    title: 'Blog',
-    path: '/blog',
+    title: 'My Bookings',
+    path: '/myBookings',
   },
   {
     title: 'Contacts',

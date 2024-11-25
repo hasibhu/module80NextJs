@@ -22,10 +22,12 @@ const CheckoutPage =  ({ params }) => {
 
         const booking = {
             serviceId: details?.id,
+            serviceTitle: details?.title,
+            serviceTitle: details?.title,
             name: e.target.name.value,
             email: e.target.email.value,
             date: e.target.date.value,
-            amount: e.target.amount.value,
+            price: e.target.amount.value,
             phone: e.target.phone.value,
             address: e.target.address.value,
         };
@@ -38,7 +40,13 @@ const CheckoutPage =  ({ params }) => {
                     "content-type": "application/json"
                 }
             })
-            
+
+            if (resp.ok) {
+            alert("Booked");
+            window.location.href = "http://localhost:3000/services"; // Redirect
+        } else {
+            console.error("Booking failed:", await resp.json());
+        }
         } catch (error) {
             console.log(error);
         }
