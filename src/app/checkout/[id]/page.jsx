@@ -21,15 +21,18 @@ const CheckoutPage = ({ params }) => {
 
     const handleBooking = (e) => {
         e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const date = e.target.date.value;
-        const amount = e.target.amount.value;
-        const phone = e.target.phone.value;
-        const address = e.target.address.value;
 
-        const { name, email, date, amount, phone, address } = bookingInfo;
+        const bookingInfo = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            date: e.target.date.value,
+            amount: e.target.amount.value,
+            phone: e.target.phone.value,
+            address: e.target.address.value
+        };
+
         console.log(bookingInfo);
+        
     }
 
 
