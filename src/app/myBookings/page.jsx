@@ -1,5 +1,6 @@
 "use client"
 
+import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -27,7 +28,24 @@ const MyBookings = () => {
         }, [session]);
 
 
-    console.log(bookings);
+    
+    
+    
+    const handleDelete = async (id) => {
+        try {
+            const response = await axios.delete(`http://localhost:3000/myBookings/api/delete/${id}`);
+            if (response.data.success) {
+                alert("Booking canceled successfully!");
+                setBookings((prev) => prev.filter((booking) => booking._id !== id));
+            } else {
+                alert("Failed to cancel booking.");
+            }
+        } catch (error) {
+            console.error("Error deleting booking:", error);
+            alert("An error occurred while canceling the booking.");
+        }
+    };
+
     return (
         <div className='container '>
             <div>
@@ -43,7 +61,7 @@ const MyBookings = () => {
             
 
 
-            <h1 className='text-2xl text-center pt-10'>My Bookings</h1>
+            <h1 className='text-2xl text-center p-10'>My Bookings</h1>
 
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
@@ -68,7 +86,9 @@ const MyBookings = () => {
                                 <td>{booking.amount}</td>
                                 <td>{booking.date}</td>
                                 <td>
-                                    <button className="btn btn-sm btn-primary">Cancel</button>
+                                    <button
+                                        onClick={() => handleDelete(booking._id)}
+                                        className="btn btn-sm btn-primary">Cancel</button>
                                 </td>
                             </tr>
                         ))}
